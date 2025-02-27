@@ -27,6 +27,21 @@ A pipeline connects multiple commands so that the output of one becomes the inpu
     open("outfile", O_WRONLY | O_CREAT | O_TRUNC, 0644) to write output.
     close(fd) to release file descriptors.
 
+The Execution Flow of Pipex
+
+    1. Open input and output files.
+    2. Create a pipe to connect two processes.
+    3. Fork the first child process:
+        Redirect STDIN to read from infile.
+        Redirect STDOUT to write to the pipe.
+        Execute cmd1 using execve().
+    4. Fork the second child process:
+        Redirect STDIN to read from the pipe.
+        Redirect STDOUT to write to outfile.
+        Execute cmd2 using execve().
+    5. Close all unnecessary file descriptors.
+    6. Wait for both processes to finish.
+
 FONCTIONS
 
 File Handling
