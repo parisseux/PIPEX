@@ -1,19 +1,19 @@
 A pipeline connects multiple commands so that the output of one becomes the input of the next. Pipex mainly relies on four fundamental Unix concepts:
 
-1. Pipes (pipe())
+    1. Pipes (pipe())
 
     Creates a communication channel between two processes.
     Provides two file descriptors:
         fd[0] → Read end (used by the second process).
         fd[1] → Write end (used by the first process).
 
-2. Process Control (fork(), execve(), waitpid())
+    2. Process Control (fork(), execve(), waitpid())
 
     fork() creates a child process to execute each command.
     execve() replaces the child process with the actual command.
     waitpid() ensures the parent process waits for children to finish.
 
-3. File Redirection (dup2())
+    3. File Redirection (dup2())
 
     Used to redirect STDIN and STDOUT:
         Input file → STDIN
@@ -21,7 +21,7 @@ A pipeline connects multiple commands so that the output of one becomes the inpu
         Pipe input → STDIN
         Output file → STDOUT
 
-4. File Handling (open(), close())
+    4. File Handling (open(), close())
 
     open("infile", O_RDONLY) to read input.
     open("outfile", O_WRONLY | O_CREAT | O_TRUNC, 0644) to write output.
