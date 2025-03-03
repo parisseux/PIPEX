@@ -6,7 +6,7 @@
 /*   By: pchatagn <pchatagn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:48:58 by pchatagn          #+#    #+#             */
-/*   Updated: 2025/03/03 13:44:44 by pchatagn         ###   ########.fr       */
+/*   Updated: 2025/03/03 14:10:54 by pchatagn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	ft_parent_process(char **av, int *fd, char **envp)
 	(void)av;
 	(void)fd;
 	(void)envp;
+	printf("miaoumiaou");
 }
 
 int	main(int ac, char **av, char **envp)
